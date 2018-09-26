@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# source:
+#
+https://unix.stackexchange.com/questions/269077/tput-setaf-color-table-how-to-determine-color-codes#269195
+
 color(){
     for c; do
         printf '\e[48;5;%dm%03d' $c $c
