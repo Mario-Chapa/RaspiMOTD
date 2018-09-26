@@ -1,3 +1,8 @@
+#!/bin/bash
+
+color1="2"
+color2="1"
+
 upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
 secs=$((${upSeconds}%60))
 mins=$((${upSeconds}/60%60))
@@ -8,9 +13,9 @@ UPTIME=`printf "%d days, %02dh%02dm%02ds" "$days" "$hours" "$mins" "$secs"`
 # get the load averages
 read one five fifteen rest < /proc/loadavg
  
-echo "$(tput setaf 2)
+echo "$(tput setaf $color1)
    .~~.   .~~.    `date +"%A, %e %B %Y, %r"`
-  '. \ ' ' / .'   `uname -srmo`$(tput setaf 1)
+  '. \ ' ' / .'   `uname -srmo`$(tput setaf $color2)
    .~ .~~~..~.
   : .~.'~'.~. :   Uptime.............: ${UPTIME}
  ~ (   ) (   ) ~  Memory.............: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {'print $2'}`kB (Total)
